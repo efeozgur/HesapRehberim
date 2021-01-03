@@ -1,0 +1,161 @@
+﻿@using HesapRehberim.Models.Modeller
+@model HesapRehberim.ViewModels.YaklasikMaliyetViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Fiyat İsteme Yazısı</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div style="height: 30px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p style="text-align: center">
+                    T.C.<br />
+                    ADALET BAKANLIĞI<br />
+                    BURDUR CUMHURİYET BAŞSAVCILIĞI
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">Sayı : @ViewBag.dosyano</div>
+            <div class="col-4"><span style="float:right">11/11/2020</span></div>
+            <div class="col-12">
+                Konu : @ViewBag.konu
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p style="text-align: center;  ">CUMHURİYET BAŞSAVCILIĞINA</p>
+                <p style="text-align: center; text-indent: 230px;">BURDUR</p>
+            </div>
+        </div>
+
+        <div class="row" style="margin:10px">
+            <p style="text-indent: 50px; text-align: justify; "><span> İdaremizce satın alınması düşünülen aşağıda cinsi, miktarı, özellikleri ve diğer şartları yazılı mal, hizmet ya da   yapım işlerinin 4734 Sayılı Kamu İhale Kanunu gereğince, yaklaşık maliyetinin tesbit edilmesinde değerlendirilmek ve KDV hariç olmak üzere piyasada satış fiyatlarının bildirilmesi rica olunur</span>.11/11/2020 </p>
+        </div>
+
+        <div id="Kisiler" class="row" style="margin-bottom: 10px">
+            <div class="col-md-4">
+                <p style="text-align: center">Adı Soyadı</p>
+                <p style="text-align: center">Kişi Ünvanı</p>
+            </div>
+            <div class="col-md-4">
+
+                <p style="text-align: center">Adı Soyadı</p>
+                <p style="text-align: center">Kişi Ünvanı</p>
+
+            </div>
+            <div class="col-md-4">
+
+                <p style="text-align: center">Adı Soyadı</p>
+                <p style="text-align: center">Kişi Ünvanı</p>
+
+            </div>
+        </div>
+
+
+        
+        <div class="col-md-12">
+
+            <div class="row">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="align-middle">Sıra No</th>
+                            <th class="align-middle">Adı</th>
+                            <th class="align-middle">Özelliği</th>
+                            <th class="align-middle">Miktarı </th>
+                            <th style="text-align: center">
+
+                                Birim Fiyat <br/>
+                                (KDV Hariç)
+                            </th>
+                            <th class="align-middle" style="text-align: center">
+                                Toplam Fiyat
+                                <br />
+                                (KDV Hariç)
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @{int i = 0;
+                    }
+                    @foreach (Malzeme mal in ViewBag.malzemeler)
+                    {
+                        i++;
+                        <tr>
+                            <td>@i</td>
+                            <td>@mal.malzemeAdi</td>
+                            <td>@mal.malzemeOzelligi</td>
+                            <td>@mal.miktari</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    }
+                    </tbody>
+                    
+                    <tr style="font-weight: bolder">
+                        <td colspan="2">Diğer Şartlar</td>
+                        <td colspan="3">KDV Hariç Genel Toplam</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2">
+                            <ul class="list-group">
+                                <li class="list-group-item">Teslim Süresi</li>
+                                <li class="list-group-item">Teslim Edilecek Parti Miktarı</li>
+                                <li class="list-group-item">Nakliye ve Sigortanın kime ait olduğu</li>
+                                <li class="list-group-item">Diğer Özel Şartlar</li>
+                                <li class="list-group-item">Uyulması Gereken Standartlar</li>
+                                <li class="list-group-item">Teknik Şartname</li>
+                                <li class="list-group-item">Diğer Hususlar</li>
+                            </ul>
+                        </td>
+                        <td colspan="3">
+                            <ul class="list-group">
+                                <li class="list-group-item">1</li>
+                                <li class="list-group-item">1</li>
+                                <li class="list-group-item">1</li>
+                                <li class="list-group-item">1</li>
+                                <li class="list-group-item">1</li>
+                                <li class="list-group-item">1</li>
+                                <li class="list-group-item">1</li>
+                            </ul>
+                        </td>
+                        <td colspan="2" style="text-align: center">
+                            Piyasa fiyatları yukarıda gösterilmiştir. <br />
+                            Tasdik Eden <br />
+                            ..../..../......
+                            <br />
+                            <br />
+                            Kişi / Oda / Firmanın
+                            <br />
+                            Adı veya Ticaret Ünvanı
+                            <br />
+                            Kaşe / İmza
+
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
